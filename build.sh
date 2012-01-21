@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Author: Anthony Gelibert <anthony.gelibert@lcis.grenoble-inp.fr>
 
 [ "root" = "`whoami`" ] && echo "Being root in all the build process isn't a good idea" && exit 1
@@ -19,11 +19,11 @@ num_cpus() {
     echo "${tmp}";
 }
 
-BINUTILS_PATCH="`ls | grep binutils | tail -1`"
+BINUTILS_PATCH="`ls | grep binutils | head -1`"
 BINUTILS_PATCHES="`ls | grep -e 'binutils.*sf'`"
-GCC_PATCH="`ls | grep gcc | tail -1`"
+GCC_PATCH="`ls | grep gcc | head -1`"
 GCC_PATCHES="`ls | grep 'gcc.*sf'`"
-GDB_PATCH="`ls | grep gdb | tail -1`"
+GDB_PATCH="`ls | grep gdb | head -1`"
 BINUTILS_VERSION="`ls | grep binutils | tail -1 | cut -f3 -d-`"
 GCC_VERSION="`ls | grep gcc | tail -1 | cut -f3 -d-`"
 GDB_VERSION="`ls | grep gdb | tail -1 | cut -f3 -d-`"
